@@ -1,0 +1,24 @@
+Team ID = GG_2956
+Trained weights drive link = "https://drive.google.com/file/d/1akSpUJwP0-NuVdiXKFaBR0M2Q1APawz1/view?usp=sharing"
+
+###############################################################################
+'''
+Please write the complete steps taken by your team explaining how you completed Task 2B. It is adviced to be as elaborate as possible.
+
+1. We decided to use tensorflow for the task. We executed the task in 2 stages, training the model and loading the model. 
+For training we started by importing dependencies  (tensorflow)
+2. We proceeded to limit the GPU usage of tensorflow using the set_memory_growth() functionality provided by tensorflow to avoid potential
+OOM errors.
+3. We loaded the training images in a dataset using the keras utility and also scaled the data.
+4. We generated data iterator using the as_numpy_iterator(). 
+5. We defined a training to validation ratio of 75:25 and split the dataset into training and validation sets accordingly. 
+6. We proceeded to develop the model architecture. We instantiated the model using Sequential() from keras. Then we added 3 layers of 2 dimensional 
+CNNs. We also added a 2D max pooling layers after each CNN layer to perform max pooling operation. Architectural parameters -
+i. kernel size - (3,3) ii. stride - 1 iii. activation function - relu iv. input image resized to - (256,256,3). We finished by adding 2 Dense layers, the output layer
+consisting of 5 nodes.
+7. We used the adam optimizer and sparse categorical cross entropy loss using the model.compile() command.
+8. We trained the model for 15 epochs and achieved 100% accuracy on training and testing sets. 
+9. We saved the model as a json file and serialized the weights to an h5 file. 
+10. As a part of the second stage, we loaded the model in the boilerplate code (loaded json file and loaded weights).
+11. We included the preprocessing functions in the classify_event function, resized image to (256,256)
+12. We included the code for generating predictions using the model and mapping the obtained event index to the event name.  
